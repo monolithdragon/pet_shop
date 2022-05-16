@@ -139,3 +139,24 @@
 .fill-color.header-toggle .header-nav-section .menu-nav li a:hover{
     color: #444444 !important;
 }
+
+.left-section .link-to-home {
+    position: relative;
+
+}
+
+.left-section .link-to-home .logo {
+    width: 35%;
+}
+
+.left-section .link-to-home span {
+    font-size: 3.5rem;
+    letter-spacing: 5px;
+    position: absolute;
+    top: -1.7rem;
+    left: 5.7rem;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(56,176,74,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
