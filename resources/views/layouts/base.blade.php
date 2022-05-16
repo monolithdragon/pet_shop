@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@include('layouts.includes.head')
+	@include('layouts.includes.head')
 
-<body class="home-page home-01 ">
+	<body class="home-page home-01 ">
 
-	@include('layouts.includes.header')
+		@include('layouts.includes.header')
 
-	{{ $slot }}
+		{{ $slot }}
 
-	@include('layouts.includes.footer')
-	
-	@include('layouts.includes.scripts')
-</body>
+		@include('layouts.includes.footer')
+
+		@include('layouts.includes.scripts')
+	</body>
+
 </html>
