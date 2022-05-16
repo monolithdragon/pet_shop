@@ -55,7 +55,7 @@
                 <div class="mid-section main-info-area">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="index.html" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+                        <a href="/" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
                     </div>
 
                     <div class="wrap-search center-section">
@@ -138,22 +138,22 @@
                     <div class="container">
                         <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
                             <li class="menu-item home-icon">
-                                <a href="index.html" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+                                <a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                             </li>
                             <li class="menu-item">
-                                <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+                                <a href="/about" class="link-term mercado-item-title">About Us</a>
                             </li>
                             <li class="menu-item">
-                                <a href="shop.html" class="link-term mercado-item-title">Shop</a>
+                                <a href="{{ route('pet_shop.shop') }}" class="link-term mercado-item-title">Shop</a>
                             </li>
                             <li class="menu-item">
-                                <a href="cart.html" class="link-term mercado-item-title">Cart</a>
+                                <a href="{{ route('pet_shop.cart') }}" class="link-term mercado-item-title">Cart</a>
                             </li>
                             <li class="menu-item">
-                                <a href="checkout.html" class="link-term mercado-item-title">Checkout</a>
+                                <a href="{{ route('pet_shop.checkout') }}" class="link-term mercado-item-title">Checkout</a>
                             </li>
                             <li class="menu-item">
-                                <a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+                                <a href="/contact" class="link-term mercado-item-title">Contact Us</a>
                             </li>																	
                         </ul>
                     </div>
