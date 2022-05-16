@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Components\About;
+use App\Http\Components\Admin\AdminDashboard;
 use App\Http\Components\Checkout;
 use App\Http\Components\Contact;
 use App\Http\Components\Home;
 use App\Http\Components\Shop;
 use App\Http\Components\ShoppingCart;
+use App\Http\Components\User\UserDashboard;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,12 +30,10 @@ Route::get('/checkout', Checkout::class)->name('pet_shop.checkout');
 
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/user/dashboard', UserDashboard::class)->name('user.dashboard');
+});
+
+Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () {
+    Route::get('/admin/dashboard', AdminDashboard::class)->name('admin.dashboard');
 });
