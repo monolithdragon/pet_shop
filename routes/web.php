@@ -5,6 +5,7 @@ use App\Http\Components\Admin\AdminDashboard;
 use App\Http\Components\Checkout;
 use App\Http\Components\Contact;
 use App\Http\Components\Home;
+use App\Http\Components\ProductDetails;
 use App\Http\Components\Shop;
 use App\Http\Components\ShoppingCart;
 use App\Http\Components\User\UserDashboard;
@@ -24,10 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class);
 Route::get('/about', About::class);
 Route::get('/contact', Contact::class);
-Route::get('/shop', Shop::class)->name('pet_shop.shop');
-Route::get('/cart', ShoppingCart::class)->name('pet_shop.cart');
-Route::get('/checkout', Checkout::class)->name('pet_shop.checkout');
-
+Route::get('/shop', Shop::class)->name('petzone.shop');
+Route::get('/cart', ShoppingCart::class)->name('petzone.cart');
+Route::get('/checkout', Checkout::class)->name('petzone.checkout');
+Route::get('/product/{product}', ProductDetails::class)->name('product.details');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
