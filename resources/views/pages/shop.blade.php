@@ -5,7 +5,9 @@
         <div class="wrap-breadcrumb">
             <ul>
                 <li class="item-link"><a href="/" class="link">home</a></li>
-                <li class="item-link"><span>Digital & Electronics</span></li>
+                <li class="item-link"><span>shop</span></li>
+                <li class="item-link"><span>{{ $category_name }}</span></li>
+                
             </ul>
         </div>
         <div class="row">
@@ -20,7 +22,7 @@
 
                 <div class="wrap-shop-control">
 
-                    <h1 class="shop-title">Digital & Electronics</h1>
+                    <h1 class="shop-title">{{ $category_name }}</h1>
 
                     <div class="wrap-right">
 
@@ -95,42 +97,15 @@
                     <h2 class="widget-title">All Categories</h2>
                     <div class="widget-content">
                         <ul class="list-category">
-                            <li class="category-item has-child-cate">
-                                <a href="#" class="cate-link">Fashion & Accessories</a>
-                                <span class="toggle-control">+</span>
-                                <ul class="sub-cate">
-                                    <li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-                                    <li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-                                    <li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-                                </ul>
-                            </li>
-                            <li class="category-item has-child-cate">
-                                <a href="#" class="cate-link">Furnitures & Home Decors</a>
-                                <span class="toggle-control">+</span>
-                                <ul class="sub-cate">
-                                    <li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-                                    <li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-                                    <li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-                                </ul>
-                            </li>
-                            <li class="category-item has-child-cate">
-                                <a href="#" class="cate-link">Digital & Electronics</a>
-                                <span class="toggle-control">+</span>
-                                <ul class="sub-cate">
-                                    <li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-                                    <li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-                                    <li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-                                </ul>
-                            </li>
-                            <li class="category-item">
-                                <a href="#" class="cate-link">Tools & Equipments</a>
-                            </li>
-                            <li class="category-item">
-                                <a href="#" class="cate-link">Kid’s Toys</a>
-                            </li>
-                            <li class="category-item">
-                                <a href="#" class="cate-link">Organics & Spa</a>
-                            </li>
+                            
+                            @foreach ($categories as $category)
+                                
+                                <li class="category-item">
+                                    <a href="{{ route('product.category', ['category_slug' => $category->slug]) }}" class="cate-link">{{ $category->name }}</a>
+                                </li>
+
+                            @endforeach
+
                         </ul>
                     </div>
                 </div><!-- Categories widget-->

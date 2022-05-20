@@ -2,6 +2,7 @@
 
 use App\Http\Components\About;
 use App\Http\Components\Admin\AdminDashboard;
+use App\Http\Components\Category;
 use App\Http\Components\Checkout;
 use App\Http\Components\Contact;
 use App\Http\Components\Home;
@@ -25,11 +26,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class);
 Route::get('/about', About::class);
 Route::get('/contact', Contact::class);
-Route::get('/shop', Shop::class)->name('petzone.shop');
+Route::get('/shop/{category_slug}', Shop::class)->name('product.category');
 Route::get('/cart', ShoppingCart::class)->name('petzone.cart');
 Route::get('/checkout', Checkout::class)->name('petzone.checkout');
 Route::get('/product/{product}', ProductDetails::class)->name('product.details');
-
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard', UserDashboard::class)->name('user.dashboard');

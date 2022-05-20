@@ -209,7 +209,7 @@
                                 <a href="/about" class="link-term mercado-item-title">About Us</a>
                             </li>
                             <li class="menu-item">
-                                <a href="/shop" class="link-term mercado-item-title">Shop</a>
+                                <a href="{{ route('product.category', ['category_slug' => 'fashion-accessories']) }}" class="link-term mercado-item-title">Shop</a>
                             </li>
                             <li class="menu-item">
                                 <a href="/cart" class="link-term mercado-item-title">Cart</a>

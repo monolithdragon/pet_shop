@@ -3,6 +3,7 @@
 namespace App\Http\Components;
 
 use App\Models\Product;
+use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -14,19 +15,25 @@ class Shop extends Component
 
     public $sorting;
     public $pageSize;
+    public $category_slug;
 
-    public function mount()
+    public function mount($category_slug)
     {
         $this->sorting = 'default';
         $this->pageSize = 12;
+        $this->category_slug = $category_slug;
     }
     
     public function render()
     {
         $products = $this->sorting();
+        $categories = Category::all();
+        $category_name = Category::where('slug', $this->category_slug)->first()->name;
         
         return view('pages.shop', [
-            'products' => $products
+            'products' => $products,
+            'categories' => $categories,
+            'category_name' => $category_name
         ]);
     }
 
@@ -39,6 +46,8 @@ class Shop extends Component
 
     private function sorting()
     {
+        $category = Category::where('slug', $this->category_slug)->first();
+
         switch ($this->sorting) {
             case 'popularity':
                 # code...
@@ -47,14 +56,14 @@ class Shop extends Component
                 # code...
                 break;
             case 'date':
-                return Product::orderBy('created_at', 'DESC')->paginate($this->pageSize);
+                return Product::where('category_id', $category->id)->orderBy('created_at', 'DESC')->paginate($this->pageSize);
             case 'price':
-                return Product::orderBy('price', 'ASC')->paginate($this->pageSize);
+                return Product::where('category_id', $category->id)->orderBy('price', 'ASC')->paginate($this->pageSize);
             case 'price-desc':
-                return Product::orderBy('price', 'DESC')->paginate($this->pageSize);
+                return Product::where('category_id', $category->id)->orderBy('price', 'DESC')->paginate($this->pageSize);
             
             default:
-                return Product::paginate($this->pageSize);
+                return Product::where('category_id', $category->id)->paginate($this->pageSize);
         }
 
         return [];
